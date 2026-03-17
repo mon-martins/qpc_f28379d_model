@@ -3,7 +3,7 @@
  * main.c
  */
 
-//S_DEFINE_THIS_MODULE("main");
+S_DEFINE_THIS_MODULE("main");
 
 enum{
     PASSED_THROUGH_SCHEDULER =1U,
@@ -15,7 +15,6 @@ enum{
  *  Function called for the microcontroller automatically.
  *
  */
-
 
 void main(void)
 {
@@ -41,7 +40,7 @@ void main(void)
 
     // Not applicable: main function, no return.
 
-//    S_ASSERT(PASSED_THROUGH_SCHEDULER,0);
+    S_ASSERT(PASSED_THROUGH_SCHEDULER,0);
 }
 
 

@@ -17,6 +17,8 @@ const gpio1          = gpio.addInstance();
 const gpio2          = gpio.addInstance();
 const memcfg         = scripting.addModule("/driverlib/memcfg.js");
 const sysctl         = scripting.addModule("/driverlib/sysctl.js");
+const FREERTOS       = scripting.addModule("/kernel/freertos_tool/FREERTOS", {}, false);
+const FREERTOS1      = FREERTOS.addInstance();
 const CMD            = scripting.addModule("/utilities/cmd_tool/cmd_syscfg/source/CMD");
 const CMD1           = CMD.addInstance();
 
@@ -50,6 +52,15 @@ memcfg.config_MEMCFG_SECT_GS13       = "MEMCFG_GSRAMCONTROLLER_CPU2";
 memcfg.config_MEMCFG_SECT_GS12       = "MEMCFG_GSRAMCONTROLLER_CPU2";
 memcfg.config_MEMCFG_SECT_GS11       = "MEMCFG_GSRAMCONTROLLER_CPU2";
 memcfg.config_MEMCFG_SECT_GS10       = "MEMCFG_GSRAMCONTROLLER_CPU2";
+
+FREERTOS1.$name                      = "myFREERTOS0";
+FREERTOS1.MINIMAL_STACK_SIZE         = 256;
+FREERTOS1.SUPPORT_DYNAMIC_ALLOCATION = false;
+FREERTOS1.tasks.create(1);
+FREERTOS1.tasks[0].$name             = "Blinky_Led_1";
+FREERTOS1.tasks[0].taskPointer       = "blinky_led_1_func";
+FREERTOS1.tasks[0].addTaskParams     = "None (NULL parameter)";
+FREERTOS1.tasks[0].taskPriority      = 1;
 
 CMD.activateCMD = true;
 CMD.activeCMD   = "CMD_Config";
@@ -107,6 +118,10 @@ CMD1.userSection[0].sectionMemory          = ["RAMGS_0_4"];
 CMD1.userSection[0].sectionAlignEnable     = true;
 CMD1.userSection[0].sectionFillEnable      = true;
 CMD1.userSection[0].sectionFill            = 171;
+scripting.suppress("The memcfg module is needed on CPU1 to assign GSRAM\\.", CMD1, "sectionRun_ramfunc");
+scripting.suppress("The memcfg module is needed on CPU1 to assign GSRAM\\.", CMD1, "sectionMemory_bss");
+scripting.suppress("The memcfg module is needed on CPU1 to assign GSRAM\\.", CMD1, "sectionMemory_data");
+scripting.suppress("The memcfg module is needed on CPU1 to assign GSRAM\\.", CMD1, "sectionMemory_sysmem");
 
 /**
  * Pinmux solution for unlocked pins/peripherals. This ensures that minor changes to the automatic solver in a future

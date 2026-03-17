@@ -37,8 +37,36 @@ void bsp_init(void){
 
 
     bsp_board_init();
+//    Board_init();
+
+    //Enable interrupts  to CM
+    Interrupt_enable(IPC_INT0);
+    Interrupt_enable(IPC_INT1);
+    Interrupt_enable(IPC_INT2);
+    Interrupt_enable(IPC_INT3);
+    Interrupt_enable(IPC_INT4);
+    Interrupt_enable(IPC_INT5);
+    Interrupt_enable(IPC_INT6);
+    Interrupt_enable(IPC_INT7);
 
     C2000Ware_libraries_init();
+
+    //
+    // Boot CPU2 core
+    //
+
+#if BSP_USE_CPU2
+    Device_bootCPU2(BOOT_MODE_CPU2);
+#endif
+
+#if BSP_SYNC_CPU2 && BSP_USE_CPU2
+    IPC_clearFlagLtoR(IPC_CPU1_L_CPU2_R, IPC_FLAG_ALL);
+    IPC_sync(IPC_CPU1_L_CPU2_R, BSP_IPC_CPU1_CPU2_SYNC_FLAG);
+#endif
+
+//    bsp_ipc_init_message_queue(IPC_CPU1_L_CPU2_R, &bsp_ipc_message_queue_cpu1_cpu2[0] , 1 , 1 );
+
+//    bsp_ipc_memory_shared_init();
 
     //
     // ENSURE
