@@ -1,0 +1,3 @@
+[submodule "submodules/qpc"]
+	path = submodules/qpc
+	url = git@github.com:mon-martins/qpc.git

@@ -8,8 +8,8 @@
 #ifndef APPLICATION_INCLUDE_APPLICATION_H_
 #define APPLICATION_INCLUDE_APPLICATION_H_
 
-#include <bsp_f28379d_xl_launchpad_cpu1.h>
-//#include <main_qm.h>
+//#include <bsp_vpu_v100_cpu1.h>
+#include <main_qm.h>
 
 
 

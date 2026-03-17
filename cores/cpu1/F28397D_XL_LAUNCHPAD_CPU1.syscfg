@@ -56,11 +56,11 @@ memcfg.config_MEMCFG_SECT_GS10       = "MEMCFG_GSRAMCONTROLLER_CPU2";
 FREERTOS1.$name                      = "myFREERTOS0";
 FREERTOS1.MINIMAL_STACK_SIZE         = 256;
 FREERTOS1.SUPPORT_DYNAMIC_ALLOCATION = false;
-FREERTOS1.tasks.create(1);
-FREERTOS1.tasks[0].$name             = "Blinky_Led_1";
-FREERTOS1.tasks[0].taskPointer       = "blinky_led_1_func";
-FREERTOS1.tasks[0].addTaskParams     = "None (NULL parameter)";
-FREERTOS1.tasks[0].taskPriority      = 1;
+FREERTOS1.MAX_PRIORITIES             = 32;
+FREERTOS1.CHECK_FOR_STACK_OVERFLOW   = 2;
+FREERTOS1.USE_TICK_HOOK              = true;
+FREERTOS1.USE_IDLE_HOOK              = true;
+FREERTOS1.USE_MALLOC_FAILED_HOOK     = true;
 
 CMD.activateCMD = true;
 CMD.activeCMD   = "CMD_Config";

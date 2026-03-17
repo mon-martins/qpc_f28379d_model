@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="6.2.3">
+ <group name="locked"/>
+ <group name="settings">
+  <item name="tabs">1</item>
+  <item name="windows">0</item>
+  <item name="grid">3</item>
+  <item name="backups">0</item>
+ </group>
+ <group name="windows">
+  <item id="active_objects::blinky::Blinky::SM">-1280,0,1476,672</item>
+  <item id=".::generated_files::qm_files::main_qm.c">196,0,596,300</item>
+  <item id=".::generated_files::qm_files::main_qm.h">0,0,256,335,*</item>
+ </group>
+ <group name="search">
+  <item name="options">2032128</item>
+  <item name="replace">0</item>
+ </group>
+ <group name="vars"/>
+ <group name="tools">
+  <group name="tool">
+   <item name="icon">0</item>
+   <item name="title"></item>
+   <item name="command"></item>
+   <item name="args"></item>
+   <item name="dir"></item>
+   <item name="options">0</item>
+  </group>
+  <group name="tool">
+   <item name="icon">0</item>
+   <item name="title"></item>
+   <item name="command"></item>
+   <item name="args"></item>
+   <item name="dir"></item>
+   <item name="options">0</item>
+  </group>
+  <group name="tool">
+   <item name="icon">0</item>
+   <item name="title"></item>
+   <item name="command"></item>
+   <item name="args"></item>
+   <item name="dir"></item>
+   <item name="options">0</item>
+  </group>
+  <group name="tool">
+   <item name="icon">0</item>
+   <item name="title"></item>
+   <item name="command"></item>
+   <item name="args"></item>
+   <item name="dir"></item>
+   <item name="options">0</item>
+  </group>
+  <group name="tool">
+   <item name="icon">0</item>
+   <item name="title"></item>
+   <item name="command"></item>
+   <item name="args"></item>
+   <item name="dir"></item>
+   <item name="options">0</item>
+  </group>
+ </group>
+</session>

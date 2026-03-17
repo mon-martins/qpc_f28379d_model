@@ -24,6 +24,13 @@
 		<nature>org.eclipse.cdt.core.ccnature</nature>
 		<nature>org.eclipse.cdt.managedbuilder.core.ScannerConfigNature</nature>
 	</natures>
+	<linkedResources>
+		<link>
+			<name>middleware/qpc</name>
+			<type>2</type>
+			<locationURI>SUBMODULES_DIR/qpc</locationURI>
+		</link>
+	</linkedResources>
 	<variableList>
 		<variable>
 			<name>C2000WARE_DLIB_ROOT</name>
@@ -32,6 +39,10 @@
 		<variable>
 			<name>C2000WARE_ROOT</name>
 			<value>$%7BCOM_TI_C2000WARE_INSTALL_DIR%7D</value>
+		</variable>
+		<variable>
+			<name>SUBMODULES_DIR</name>
+			<value>$%7BPARENT-2-PROJECT_LOC%7D/submodules</value>
 		</variable>
 	</variableList>
 </projectDescription>

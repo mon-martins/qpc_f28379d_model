@@ -1,0 +1,1049 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<model version="6.2.3" links="0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.state-machine.com/qm/qm.xsd">
+ <framework name="qpc"/>
+ <package name="active_objects" stereotype="0x00">
+  <package name="errors" stereotype="0x00">
+   <attribute name="base_errors" type="enum" visibility="0x04" properties="0x00">
+    <code>{
+    GOTTA_CATCH_EM_ALL_1 = 1U,
+    GOTTA_CATCH_EM_ALL_2 = 2U,
+};</code>
+   </attribute>
+   <attribute name="blinky_errors" type="enum" visibility="0x04" properties="0x00">
+    <code>{
+    GOTTA_CATCH_EM_ALL_1 = 1U,
+    GOTTA_CATCH_EM_ALL_2 = 2U,
+};</code>
+   </attribute>
+  </package>
+  <package name="base" stereotype="0x00">
+   <attribute name="base_state" type="typedef enum" visibility="0x04" properties="0x00">
+    <code>{
+    BASE_STATE_INITIALIZATION,
+    BASE_STATE_PRE_KERNEL,
+    BASE_STATE_POST_KERNEL,
+    BASE_STATE_POST_KERNEL_LOGIC,
+    BASE_STATE_OPERATION,
+    BASE_STATE_BASE_LOGIC,
+}base_state_t;</code>
+   </attribute>
+   <class name="Base" superclass="qpc::QActive">
+    <operation name="operation" type="void" visibility="0x02" properties="0x00">
+     <documentation>Don't put any code in the box bellow</documentation>
+    </operation>
+    <operation name="event_operation" type="void" visibility="0x02" properties="0x00">
+     <documentation>Don't put any code in the box bellow</documentation>
+     <parameter name="e" type="QEvt const * const"/>
+    </operation>
+    <statechart properties="0x00">
+     <initial target="../2/1">
+      <initial_glyph conn="8,10,5,3,6,4,4">
+       <action box="0,-2,10,2"/>
+      </initial_glyph>
+     </initial>
+     <state name="OPERATION">
+      <initial target="../2">
+       <initial_glyph conn="52,14,5,3,4">
+        <action box="0,-2,10,2"/>
+       </initial_glyph>
+      </initial>
+      <tran trig="CATCH_ALL">
+       <action>bsp_complementary_assert_data[0] = e-&gt;sig;
+
+S_ASSERT( GOTTA_CATCH_EM_ALL_2, 0 );
+
+/*
+                   _,........_
+               _.-'    ___    `-._
+            ,-'      ,'   \       `.
+ _,...    ,'      ,-'     |  ,&quot;&quot;&quot;:`._.
+/     `--+.   _,.'      _.',',|&quot;|  ` \`
+\_         `&quot;'     _,-&quot;'  | / `-'   l L\
+  `&quot;---.._      ,-&quot;       | l       | | |
+      /   `.   |          ' `.     ,' ; |
+     j     |   |           `._`&quot;&quot;&quot;' ,'  |__
+     |      `--'____          `----'    .' `.
+     |    _,-&quot;&quot;&quot;    `-.                 |    \
+     l   /             `.               F     l
+      `./     __..._     `.           ,'      |
+        |  ,-&quot;      `.    | ._     _.'        |
+        . j           \   j   /`&quot;&quot;&quot;      __   |          ,&quot;`.
+         `|           | _,.__ |        ,'  `. |          |   |
+          `-._       /-'     `L       .     , '          |   |
+              F-...-'          `      |    , /           |   |
+              |            ,----.     `...' /            |   |
+              .--.        j      l        ,'             |   j
+             j    L       |      |'-...--&lt;               .  /
+             `     |       . __,,_    ..  |               \/
+              `-..'.._  __,-'     \  |  |/`._           ,'`
+                  |   &quot;&quot;       .--`. `--,  ,-`..____..,'   |
+                   L          /     \ _.  |   | \  .-.\    j
+                  .'._        l     .\    `---' |  |  || ,'
+                   .  `..____,-.._.'  `._       |  `--;&quot;I'
+                    `--&quot;' `.            ,`-..._/__,.-1,'
+                            `-.__  __,.'     ,' ,' _-'
+                                 `'...___..`'--^--'mh
+*/</action>
+       <tran_glyph conn="48,30,3,-1,10">
+        <action box="0,-2,10,2"/>
+       </tran_glyph>
+      </tran>
+      <state name="BASE_LOGIC">
+       <state_glyph node="56,10,20,12"/>
+      </state>
+      <state_glyph node="48,6,76,26"/>
+     </state>
+     <state name="INITIALIZATION">
+      <tran trig="CATCH_ALL">
+       <action>bsp_complementary_assert_data[0] = e-&gt;sig;
+
+S_ASSERT( GOTTA_CATCH_EM_ALL_1, 0 );
+
+/*
+                   _,........_
+               _.-'    ___    `-._
+            ,-'      ,'   \       `.
+ _,...    ,'      ,-'     |  ,&quot;&quot;&quot;:`._.
+/     `--+.   _,.'      _.',',|&quot;|  ` \`
+\_         `&quot;'     _,-&quot;'  | / `-'   l L\
+  `&quot;---.._      ,-&quot;       | l       | | |
+      /   `.   |          ' `.     ,' ; |
+     j     |   |           `._`&quot;&quot;&quot;' ,'  |__
+     |      `--'____          `----'    .' `.
+     |    _,-&quot;&quot;&quot;    `-.                 |    \
+     l   /             `.               F     l
+      `./     __..._     `.           ,'      |
+        |  ,-&quot;      `.    | ._     _.'        |
+        . j           \   j   /`&quot;&quot;&quot;      __   |          ,&quot;`.
+         `|           | _,.__ |        ,'  `. |          |   |
+          `-._       /-'     `L       .     , '          |   |
+              F-...-'          `      |    , /           |   |
+              |            ,----.     `...' /            |   |
+              .--.        j      l        ,'             |   j
+             j    L       |      |'-...--&lt;               .  /
+             `     |       . __,,_    ..  |               \/
+              `-..'.._  __,-'     \  |  |/`._           ,'`
+                  |   &quot;&quot;       .--`. `--,  ,-`..____..,'   |
+                   L          /     \ _.  |   | \  .-.\    j
+                  .'._        l     .\    `---' |  |  || ,'
+                   .  `..____,-.._.'  `._       |  `--;&quot;I'
+                    `--&quot;' `.            ,`-..._/__,.-1,'
+                            `-.__  __,.'     ,' ,' _-'
+                                 `'...___..`'--^--'mh
+*/</action>
+       <tran_glyph conn="12,50,3,-1,10">
+        <action box="0,-2,10,2"/>
+       </tran_glyph>
+      </tran>
+      <state name="PRE_KERNEL">
+       <entry>QACTIVE_POST(&amp;me-&gt;super , &amp;im_kernel_start , (void *)0);
+</entry>
+       <tran trig="KERNEL_START" target="../../../1">
+        <tran_glyph conn="18,18,3,3,30">
+         <action box="0,-2,13,2"/>
+        </tran_glyph>
+       </tran>
+       <state_glyph node="18,10,22,14">
+        <entry box="1,2,6,2"/>
+       </state_glyph>
+      </state>
+      <state name="POST_KERNEL">
+       <state name="POST_KERNEL_LOGIC">
+        <state_glyph node="18,32,22,12"/>
+       </state>
+       <state_glyph node="16,28,26,18"/>
+      </state>
+      <state_glyph node="12,6,32,46"/>
+     </state>
+     <state_diagram size="152,68"/>
+    </statechart>
+   </class>
+   <attribute name="inst_ao_base" type="Base" visibility="0x01" properties="0x00"/>
+   <package name="globals" stereotype="0x00">
+    <attribute name="pointer_ao_base" type="QActive * const" visibility="0x00" properties="0x00">
+     <code>= &amp;inst_ao_base.super;</code>
+    </attribute>
+    <operation name="ao_base_ctor" type="void" visibility="0x00" properties="0x00">
+     <documentation>// ! @brief constructor of the active object
+// !
+// ! @param pAO: pointer to the instance of the active object to be constructed;
+// !
+// ! This function is in charge of:
+// ! - Proper construction of the Active object state machine calling the
+// !   QActive_ctor function;
+// ! - Call the constructor of the  orthogonal compoenets owned by this AO;
+// ! - Construction of the time events owned by this active object;
+// ! - Setting the initial value of any variables that demands it;</documentation>
+     <parameter name="pAO" type="const QActive  * const"/>
+     <code>//=======================================//
+//=============Active-Object=============//
+//=======================================//
+
+// Casting the proper class of this AO
+Base * const me = (Base *) pAO;
+
+// Constructing the active object
+QActive_ctor(&amp;me-&gt;super, Q_STATE_CAST(&amp;Base_initial));
+
+//=======================================//
+//=========Orthogonal-Components=========//
+//=======================================//
+
+// in this example there isn't any orthogonal components
+
+// example
+// oc_test_ctor( me-&gt;oc_inst, &amp;me-&gt;super , id);
+
+//=======================================//
+//==============Time-Events==============//
+//=======================================//
+
+</code>
+    </operation>
+    <attribute name="AO_BASE_MINIMAL_STACK_SIZE" type="" visibility="0x03" properties="0x00">
+     <documentation>// ! @brief Stack Size to this Active Object
+// !
+// ! - This Value must be larger than configMINIMAL_STACK_SIZE to FreeRTOS
+// !   Compatibility
+// ! - This Value must be largen tan any Stack use for any State + Substate
+// !   from this Active Object;
+// ! - If its Active Object Use Any Orthogonal Component, this value must be
+// !   larger than any stack use for AO_State+AO_Substate+OC_State+OC_Substate</documentation>
+     <code>300</code>
+    </attribute>
+   </package>
+  </package>
+  <package name="blinky" stereotype="0x00">
+   <attribute name="blinky_state" type="typedef enum" visibility="0x04" properties="0x00">
+    <code>{
+    BLINKY_STATE_INITIALIZATION,
+    BLINKY_STATE_PRE_KERNEL,
+    BLINKY_STATE_POST_KERNEL,
+    BLINKY_STATE_WAITING_IO_EXPANDER,
+    BLINKY_STATE_OPERATIRATION,
+    BLINKY_STATE_LED_OFF,
+    BLINKY_STATE_LED_ON,
+}blinky_state_t;</code>
+   </attribute>
+   <class name="Blinky" superclass="qpc::QActive">
+    <attribute name="time_evt_half_cycle" type="QTimeEvt" visibility="0x02" properties="0x00"/>
+    <attribute name="state" type="blinky_state_t" visibility="0x00" properties="0x00"/>
+    <statechart properties="0x00">
+     <initial target="../2/1">
+      <initial_glyph conn="2,8,5,3,6,4,4">
+       <action box="0,-2,10,2"/>
+      </initial_glyph>
+     </initial>
+     <state name="OPERATION">
+      <entry>me-&gt;state = BLINKY_STATE_OPERATIRATION;
+
+QTimeEvt_armX(
+    &amp;me-&gt;time_evt_half_cycle,
+    (uint16_t) (500),
+    (uint16_t) (500)
+);
+</entry>
+      <initial target="../2">
+       <initial_glyph conn="48,16,5,3,4">
+        <action box="0,-2,10,2"/>
+       </initial_glyph>
+      </initial>
+      <tran trig="CATCH_ALL">
+       <action>bsp_complementary_assert_data[0] = e-&gt;sig;
+
+S_ASSERT( GOTTA_CATCH_EM_ALL_2, 0 );
+
+/*
+                   _,........_
+               _.-'    ___    `-._
+            ,-'      ,'   \       `.
+ _,...    ,'      ,-'     |  ,&quot;&quot;&quot;:`._.
+/     `--+.   _,.'      _.',',|&quot;|  ` \`
+\_         `&quot;'     _,-&quot;'  | / `-'   l L\
+  `&quot;---.._      ,-&quot;       | l       | | |
+      /   `.   |          ' `.     ,' ; |
+     j     |   |           `._`&quot;&quot;&quot;' ,'  |__
+     |      `--'____          `----'    .' `.
+     |    _,-&quot;&quot;&quot;    `-.                 |    \
+     l   /             `.               F     l
+      `./     __..._     `.           ,'      |
+        |  ,-&quot;      `.    | ._     _.'        |
+        . j           \   j   /`&quot;&quot;&quot;      __   |          ,&quot;`.
+         `|           | _,.__ |        ,'  `. |          |   |
+          `-._       /-'     `L       .     , '          |   |
+              F-...-'          `      |    , /           |   |
+              |            ,----.     `...' /            |   |
+              .--.        j      l        ,'             |   j
+             j    L       |      |'-...--&lt;               .  /
+             `     |       . __,,_    ..  |               \/
+              `-..'.._  __,-'     \  |  |/`._           ,'`
+                  |   &quot;&quot;       .--`. `--,  ,-`..____..,'   |
+                   L          /     \ _.  |   | \  .-.\    j
+                  .'._        l     .\    `---' |  |  || ,'
+                   .  `..____,-.._.'  `._       |  `--;&quot;I'
+                    `--&quot;' `.            ,`-..._/__,.-1,'
+                            `-.__  __,.'     ,' ,' _-'
+                                 `'...___..`'--^--'mh
+*/</action>
+       <tran_glyph conn="44,26,3,-1,10">
+        <action box="0,-2,10,2"/>
+       </tran_glyph>
+      </tran>
+      <state name="LED_OFF">
+       <entry>me-&gt;state = BLINKY_STATE_LED_OFF;
+
+bsp_turn_off_led_1();
+bsp_force_task_8();
+</entry>
+       <tran trig="HALF_CYCLE" target="../../3">
+        <tran_glyph conn="52,18,3,3,24">
+         <action box="0,-2,20,2"/>
+        </tran_glyph>
+       </tran>
+       <state_glyph node="52,10,20,12">
+        <entry box="1,2,6,2"/>
+       </state_glyph>
+      </state>
+      <state name="LED_ON">
+       <entry>me-&gt;state = BLINKY_STATE_LED_ON;
+
+bsp_turn_on_led_1();
+bsp_force_task_8();</entry>
+       <tran trig="HALF_CYCLE" target="../../2">
+        <tran_glyph conn="96,20,1,3,-44">
+         <action box="-20,-2,20,2"/>
+        </tran_glyph>
+       </tran>
+       <state_glyph node="76,10,20,12">
+        <entry box="1,2,6,2"/>
+       </state_glyph>
+      </state>
+      <state_glyph node="44,4,56,24">
+       <entry box="1,2,6,2"/>
+      </state_glyph>
+     </state>
+     <state name="INITIALIZATION">
+      <entry>me-&gt;state = BLINKY_STATE_INITIALIZATION;</entry>
+      <tran trig="CATCH_ALL">
+       <action>bsp_complementary_assert_data[0] = e-&gt;sig;
+
+S_ASSERT( GOTTA_CATCH_EM_ALL_1, 0 );
+
+/*
+                   _,........_
+               _.-'    ___    `-._
+            ,-'      ,'   \       `.
+ _,...    ,'      ,-'     |  ,&quot;&quot;&quot;:`._.
+/     `--+.   _,.'      _.',',|&quot;|  ` \`
+\_         `&quot;'     _,-&quot;'  | / `-'   l L\
+  `&quot;---.._      ,-&quot;       | l       | | |
+      /   `.   |          ' `.     ,' ; |
+     j     |   |           `._`&quot;&quot;&quot;' ,'  |__
+     |      `--'____          `----'    .' `.
+     |    _,-&quot;&quot;&quot;    `-.                 |    \
+     l   /             `.               F     l
+      `./     __..._     `.           ,'      |
+        |  ,-&quot;      `.    | ._     _.'        |
+        . j           \   j   /`&quot;&quot;&quot;      __   |          ,&quot;`.
+         `|           | _,.__ |        ,'  `. |          |   |
+          `-._       /-'     `L       .     , '          |   |
+              F-...-'          `      |    , /           |   |
+              |            ,----.     `...' /            |   |
+              .--.        j      l        ,'             |   j
+             j    L       |      |'-...--&lt;               .  /
+             `     |       . __,,_    ..  |               \/
+              `-..'.._  __,-'     \  |  |/`._           ,'`
+                  |   &quot;&quot;       .--`. `--,  ,-`..____..,'   |
+                   L          /     \ _.  |   | \  .-.\    j
+                  .'._        l     .\    `---' |  |  || ,'
+                   .  `..____,-.._.'  `._       |  `--;&quot;I'
+                    `--&quot;' `.            ,`-..._/__,.-1,'
+                            `-.__  __,.'     ,' ,' _-'
+                                 `'...___..`'--^--'mh
+*/</action>
+       <tran_glyph conn="6,48,3,-1,12">
+        <action box="0,-2,10,2"/>
+       </tran_glyph>
+      </tran>
+      <state name="PRE_KERNEL">
+       <entry>me-&gt;state = BLINKY_STATE_PRE_KERNEL;
+
+QACTIVE_POST(
+    &amp;me-&gt;super,
+    &amp;im_kernel_start,
+    &amp;me-&gt;super
+);
+</entry>
+       <tran trig="KERNEL_START" target="../../../1">
+        <tran_glyph conn="12,16,3,3,30,-8,2">
+         <action box="0,-2,13,2"/>
+        </tran_glyph>
+       </tran>
+       <state_glyph node="12,8,22,14">
+        <entry box="1,2,6,2"/>
+       </state_glyph>
+      </state>
+      <state name="POST_KERNEL">
+       <entry>me-&gt;state = BLINKY_STATE_POST_KERNEL;</entry>
+       <state_glyph node="8,24,30,20">
+        <entry box="1,2,6,2"/>
+       </state_glyph>
+      </state>
+      <state_glyph node="6,4,34,46">
+       <entry box="1,2,6,2"/>
+      </state_glyph>
+     </state>
+     <state_diagram size="164,68"/>
+    </statechart>
+   </class>
+   <attribute name="inst_ao_blinky" type="Blinky" visibility="0x01" properties="0x00"/>
+   <package name="globals" stereotype="0x00">
+    <attribute name="pointer_ao_blinky" type="QActive * const" visibility="0x00" properties="0x00">
+     <code>= &amp;inst_ao_blinky.super;</code>
+    </attribute>
+    <operation name="ao_blinky_ctor" type="void" visibility="0x00" properties="0x00">
+     <documentation>// ! @brief constructor of the active object
+// !
+// ! @param pAO: pointer to the instance of the active object to be constructed;
+// !
+// ! This function is in charge of:
+// ! - Proper construction of the Active object state machine calling the
+// !   QActive_ctor function;
+// ! - Call the constructor of the  orthogonal compoenets owned by this AO;
+// ! - Construction of the time events owned by this active object;
+// ! - Setting the initial value of any variables that demands it;</documentation>
+     <parameter name="pAO" type="const QActive  * const"/>
+     <code>//=======================================//
+//=============Active-Object=============//
+//=======================================//
+
+// Casting the proper class of this AO
+Blinky * const me = (Blinky *) pAO;
+
+// Constructing the active object
+QActive_ctor(&amp;me-&gt;super, Q_STATE_CAST(&amp;Blinky_initial));
+
+//=======================================//
+//=========Orthogonal-Components=========//
+//=======================================//
+
+// in this example there isn't any orthogonal components
+
+// example
+// oc_test_ctor( me-&gt;oc_inst, &amp;me-&gt;super , id);
+
+//=======================================//
+//==============Time-Events==============//
+//=======================================//
+
+QTimeEvt_ctorX( &amp;( me-&gt;time_evt_half_cycle ) , &amp;( me-&gt;super ) , HALF_CYCLE_SIG , 0U );
+</code>
+    </operation>
+    <attribute name="AO_BLINKY_MINIMAL_STACK_SIZE" type="" visibility="0x03" properties="0x00">
+     <documentation>// ! @brief Stack Size to this Active Object
+// !
+// ! - This Value must be larger than configMINIMAL_STACK_SIZE to FreeRTOS
+// !   Compatibility
+// ! - This Value must be largen tan any Stack use for any State + Substate
+// !   from this Active Object;
+// ! - If its Active Object Use Any Orthogonal Component, this value must be
+// !   larger than any stack use for AO_State+AO_Substate+OC_State+OC_Substate</documentation>
+     <code>300</code>
+    </attribute>
+   </package>
+  </package>
+ </package>
+ <package name="orthogonal_components" stereotype="0x00">
+  <package name="errors" stereotype="0x00">
+   <attribute name="base_errors" type="enum" visibility="0x04" properties="0x00">
+    <code>{
+    GOTTA_CATCH_EM_ALL_1 = 1U,
+    GOTTA_CATCH_EM_ALL_2 = 2U,
+};</code>
+   </attribute>
+   <attribute name="contactor_errors" type="enum" visibility="0x04" properties="0x00">
+    <code>{
+    GOTTA_CATCH_EM_ALL_1 = 1U,
+    GOTTA_CATCH_EM_ALL_2 = 2U,
+    TIMEOUT_SHOUNDT_BE_CALLED_WITHOUT_COMMAND = 3U,
+    UNSPECTED_SIGNAL_1 = 4U,
+    UNSPECTED_SIGNAL_2 = 5U,
+    UNSPECTED_SIGNAL_3 = 6U,
+    UNSPECTED_SIGNAL_4 = 7U,
+};</code>
+   </attribute>
+   <attribute name="i2c_errors" type="enum" visibility="0x04" properties="0x00">
+    <code>{
+    GOTTA_CATCH_EM_ALL_1 = 1U,
+    GOTTA_CATCH_EM_ALL_2 = 2U,
+};</code>
+   </attribute>
+   <attribute name="io_expander_errors" type="enum" visibility="0x04" properties="0x00">
+    <code>{
+    GOTTA_CATCH_EM_ALL_1 = 1U,
+    GOTTA_CATCH_EM_ALL_2 = 2U,
+};</code>
+   </attribute>
+   <attribute name="alternator_control_errors" type="enum" visibility="0x04" properties="0x00">
+    <code>{
+    GOTTA_CATCH_EM_ALL_1 = 1U,
+    GOTTA_CATCH_EM_ALL_2 = 2U,
+    INVALID_SIGNAL_TO_THIS_TRANSITION_1 = 3U,
+    INVALID_SIGNAL_TO_THIS_TRANSITION_2 = 4U,
+    INVALID_SIGNAL_TO_THIS_TRANSITION_3 = 5U,
+    INVALID_SIGNAL_TO_THIS_TRANSITION_4 = 6U,
+    INVALID_SETPOINT_ID_1 = 7U,
+};</code>
+   </attribute>
+   <attribute name="motor_control_errors" type="enum" visibility="0x04" properties="0x00">
+    <code>{
+    GOTTA_CATCH_EM_ALL_1 = 1U,
+    GOTTA_CATCH_EM_ALL_2 = 2U,
+    INVALID_SETPOINT_ID_1 = 3U,
+};</code>
+   </attribute>
+   <attribute name="fsbb_control_errors" type="enum" visibility="0x04" properties="0x00">
+    <code>{
+    GOTTA_CATCH_EM_ALL_1 = 1U,
+    GOTTA_CATCH_EM_ALL_2 = 2U,
+};</code>
+   </attribute>
+  </package>
+  <package name="oc_base" stereotype="0x00">
+   <class name="Base" superclass="qpc::QHsm">
+    <attribute name="owner" type="QActive *" visibility="0x02" properties="0x00"/>
+    <attribute name="id" type="uint16_t" visibility="0x02" properties="0x00"/>
+    <attribute name="qs_id" type="uint_fast8_t" visibility="0x00" properties="0x00"/>
+    <operation name="ctor" type="void" visibility="0x00" properties="0x00">
+     <parameter name="owner" type="QActive * const"/>
+     <parameter name="id" type="uint16_t"/>
+     <parameter name="qs_id" type="uint_fast8_t"/>
+     <code>QHsm_ctor(&amp;me-&gt;super, Q_STATE_CAST(&amp;BASE_initial));
+me-&gt;owner = owner;
+me-&gt;id = id;
+me-&gt;qs_id = qs_id;
+
+// Time Events Constructors</code>
+    </operation>
+    <operation name="operation" type="void" visibility="0x02" properties="0x00">
+     <documentation>Don't put any code in the box bellow</documentation>
+    </operation>
+    <operation name="event_operation" type="void" visibility="0x02" properties="0x00">
+     <documentation>Don't put any code in the box bellow</documentation>
+     <parameter name="e" type="QEvt const * const"/>
+    </operation>
+    <statechart properties="0x00">
+     <initial target="../2/1">
+      <initial_glyph conn="6,10,5,3,6,4,4">
+       <action box="0,-2,10,2"/>
+      </initial_glyph>
+     </initial>
+     <state name="OPERATION">
+      <initial target="../2">
+       <initial_glyph conn="52,16,5,3,6">
+        <action box="0,-2,10,2"/>
+       </initial_glyph>
+      </initial>
+      <tran trig="CATCH_ALL">
+       <action>bsp_complementary_assert_data[0] = e-&gt;sig;
+
+S_ASSERT( GOTTA_CATCH_EM_ALL_2, 0 );
+
+/*
+                   _,........_
+               _.-'    ___    `-._
+            ,-'      ,'   \       `.
+ _,...    ,'      ,-'     |  ,&quot;&quot;&quot;:`._.
+/     `--+.   _,.'      _.',',|&quot;|  ` \`
+\_         `&quot;'     _,-&quot;'  | / `-'   l L\
+  `&quot;---.._      ,-&quot;       | l       | | |
+      /   `.   |          ' `.     ,' ; |
+     j     |   |           `._`&quot;&quot;&quot;' ,'  |__
+     |      `--'____          `----'    .' `.
+     |    _,-&quot;&quot;&quot;    `-.                 |    \
+     l   /             `.               F     l
+      `./     __..._     `.           ,'      |
+        |  ,-&quot;      `.    | ._     _.'        |
+        . j           \   j   /`&quot;&quot;&quot;      __   |          ,&quot;`.
+         `|           | _,.__ |        ,'  `. |          |   |
+          `-._       /-'     `L       .     , '          |   |
+              F-...-'          `      |    , /           |   |
+              |            ,----.     `...' /            |   |
+              .--.        j      l        ,'             |   j
+             j    L       |      |'-...--&lt;               .  /
+             `     |       . __,,_    ..  |               \/
+              `-..'.._  __,-'     \  |  |/`._           ,'`
+                  |   &quot;&quot;       .--`. `--,  ,-`..____..,'   |
+                   L          /     \ _.  |   | \  .-.\    j
+                  .'._        l     .\    `---' |  |  || ,'
+                   .  `..____,-.._.'  `._       |  `--;&quot;I'
+                    `--&quot;' `.            ,`-..._/__,.-1,'
+                            `-.__  __,.'     ,' ,' _-'
+                                 `'...___..`'--^--'mh
+*/</action>
+       <tran_glyph conn="46,30,3,-1,10">
+        <action box="0,-2,10,2"/>
+       </tran_glyph>
+      </tran>
+      <state name="BASE_LOGIC">
+       <state_glyph node="58,12,20,12"/>
+      </state>
+      <state_glyph node="46,6,76,26"/>
+     </state>
+     <state name="INITIALIZATION">
+      <tran trig="CATCH_ALL">
+       <action>bsp_complementary_assert_data[0] = e-&gt;sig;
+
+S_ASSERT( GOTTA_CATCH_EM_ALL_1, 0 );
+
+/*
+                   _,........_
+               _.-'    ___    `-._
+            ,-'      ,'   \       `.
+ _,...    ,'      ,-'     |  ,&quot;&quot;&quot;:`._.
+/     `--+.   _,.'      _.',',|&quot;|  ` \`
+\_         `&quot;'     _,-&quot;'  | / `-'   l L\
+  `&quot;---.._      ,-&quot;       | l       | | |
+      /   `.   |          ' `.     ,' ; |
+     j     |   |           `._`&quot;&quot;&quot;' ,'  |__
+     |      `--'____          `----'    .' `.
+     |    _,-&quot;&quot;&quot;    `-.                 |    \
+     l   /             `.               F     l
+      `./     __..._     `.           ,'      |
+        |  ,-&quot;      `.    | ._     _.'        |
+        . j           \   j   /`&quot;&quot;&quot;      __   |          ,&quot;`.
+         `|           | _,.__ |        ,'  `. |          |   |
+          `-._       /-'     `L       .     , '          |   |
+              F-...-'          `      |    , /           |   |
+              |            ,----.     `...' /            |   |
+              .--.        j      l        ,'             |   j
+             j    L       |      |'-...--&lt;               .  /
+             `     |       . __,,_    ..  |               \/
+              `-..'.._  __,-'     \  |  |/`._           ,'`
+                  |   &quot;&quot;       .--`. `--,  ,-`..____..,'   |
+                   L          /     \ _.  |   | \  .-.\    j
+                  .'._        l     .\    `---' |  |  || ,'
+                   .  `..____,-.._.'  `._       |  `--;&quot;I'
+                    `--&quot;' `.            ,`-..._/__,.-1,'
+                            `-.__  __,.'     ,' ,' _-'
+                                 `'...___..`'--^--'mh
+*/</action>
+       <tran_glyph conn="10,50,3,-1,12">
+        <action box="0,-2,10,2"/>
+       </tran_glyph>
+      </tran>
+      <state name="PRE_KERNEL">
+       <tran trig="KERNEL_START" target="../../../1">
+        <tran_glyph conn="16,18,3,3,28,-6,2">
+         <action box="0,-2,13,2"/>
+        </tran_glyph>
+       </tran>
+       <state_glyph node="16,10,22,14"/>
+      </state>
+      <state name="POST_KERNEL">
+       <state name="POST_KERNEL_LOGIC">
+        <state_glyph node="14,32,22,12"/>
+       </state>
+       <state_glyph node="12,28,26,18"/>
+      </state>
+      <state_glyph node="10,6,32,46"/>
+     </state>
+     <state_diagram size="132,70"/>
+    </statechart>
+   </class>
+  </package>
+ </package>
+ <package name="project_config" stereotype="0x00">
+  <attribute name="active_objects_priorities_enum" type="enum" visibility="0x04" properties="0x00">
+   <code>{
+    // Priority in ascendance order
+    IDLE_TASK=0U,
+    AO_BLINKY_PRIO,
+    AO_MAX_PRIORITY_PLUS_ONE
+};</code>
+  </attribute>
+  <package name="orthogonal_components_ids" stereotype="0x00"/>
+  <package name="signals" stereotype="0x00">
+   <attribute name="publish_subcriber_signals_enum" type="enum" visibility="0x04" properties="0x00">
+    <code>{
+    FIRST_PUBLISH_SIG = Q_USER_SIG,
+
+    // Dont put any signal bellow this
+    MAX_PUB_SIG,
+};</code>
+   </attribute>
+   <attribute name="signals_enum" type="enum" visibility="0x04" properties="0x00">
+    <code>{
+    // Common Signals
+    KERNEL_START_SIG = MAX_PUB_SIG+1,
+
+    // Blinky
+    HALF_CYCLE_SIG,
+
+};</code>
+   </attribute>
+  </package>
+  <package name="QS" stereotype="0x00">
+   <attribute name="orthogonal_components_qs_id_enum" type="enum" visibility="0x04" properties="0x00">
+    <code>{
+    AO_NAME_OC_NAME_QS_ID = AO_MAX_PRIORITY_PLUS_ONE,
+};</code>
+   </attribute>
+  </package>
+  <package name="macros" stereotype="0x00">
+   <package name="time" stereotype="0x00">
+    <attribute name="RTOS_TICK_FREQUENCY_HZ" type="" visibility="0x03" properties="0x00">
+     <documentation>include &quot;FreeRTOS_Config.h&quot;</documentation>
+     <code>configTICK_RATE_HZ</code>
+    </attribute>
+    <attribute name="RTOS_TICK_PERIOD_MS" type="" visibility="0x03" properties="0x00">
+     <code>(1000.f/RTOS_TICK_FREQUENCY_HZ)</code>
+    </attribute>
+   </package>
+  </package>
+  <package name="event_types" stereotype="0x00">
+   <package name="orthogonal_components" stereotype="0x00">
+    <class name="OC_Evt" superclass="qpc::QEvt">
+     <attribute name="id" type="uint16_t" visibility="0x00" properties="0x00"/>
+    </class>
+    <class name="OC_TimeEvt" superclass="qpc::QTimeEvt">
+     <attribute name="id" type="uint16_t" visibility="0x00" properties="0x00"/>
+    </class>
+   </package>
+   <package name="active_objects" stereotype="0x00"/>
+  </package>
+  <package name="event_pools" stereotype="0x00">
+   <attribute name="EVT_POOL_1_SIZE" type="" visibility="0x03" properties="0x00">
+    <code>32</code>
+   </attribute>
+   <attribute name="EVT_POOL_2_SIZE" type="" visibility="0x03" properties="0x00">
+    <code>32</code>
+   </attribute>
+   <attribute name="EVT_POOL_3_SIZE" type="" visibility="0x03" properties="0x00">
+    <code>32</code>
+   </attribute>
+   <attribute name="EVT_POOL_4_SIZE" type="" visibility="0x03" properties="0x00">
+    <code>32
+</code>
+   </attribute>
+   <class name="evt_pool_payload_1_t">
+    <attribute name="data[1]" type="uint16_t" visibility="0x00" properties="0x00"/>
+   </class>
+   <class name="evt_pool_payload_2_t">
+    <attribute name="data[4]" type="uint16_t" visibility="0x00" properties="0x00"/>
+   </class>
+   <class name="evt_pool_payload_3_t">
+    <attribute name="data[8]" type="uint16_t" visibility="0x00" properties="0x00"/>
+   </class>
+   <class name="evt_pool_payload_4_t">
+    <attribute name="data[16]" type="uint16_t" visibility="0x00" properties="0x00"/>
+   </class>
+   <class name="EvtPool1_t" superclass="qpc::QEvt">
+    <attribute name="payload" type="evt_pool_payload_1_t" visibility="0x02" properties="0x00"/>
+   </class>
+   <class name="EvtPool2_t" superclass="qpc::QEvt">
+    <attribute name="payload" type="evt_pool_payload_2_t" visibility="0x02" properties="0x00"/>
+   </class>
+   <class name="EvtPool3_t" superclass="qpc::QEvt">
+    <attribute name="payload" type="evt_pool_payload_3_t" visibility="0x02" properties="0x00"/>
+   </class>
+   <class name="EvtPool4_t" superclass="qpc::QEvt">
+    <attribute name="payload" type="evt_pool_payload_4_t" visibility="0x02" properties="0x00"/>
+   </class>
+  </package>
+  <package name="immutable_events" stereotype="0x00">
+   <package name="commum" stereotype="0x00">
+    <attribute name="im_kernel_start" type="QEvt const" visibility="0x00" properties="0x00">
+     <code>= QEVT_INITIALIZER( KERNEL_START_SIG );</code>
+    </attribute>
+   </package>
+   <package name="orthogonal_components" stereotype="0x00"/>
+   <package name="active_objects" stereotype="0x00"/>
+  </package>
+ </package>
+ <package name="qp_config" stereotype="0x00">
+  <attribute name="QP_API_VERSION" type="" visibility="0x03" properties="0x00">
+   <documentation>// &lt;o&gt;QP API compatibility version (QP_API_VERSION)
+//   &lt;0=&gt;  0   (Maximum compatibility)
+//   &lt;691=&gt;691 (QP 6.9.1 or newer)
+//   &lt;734=&gt;7.3.4 (QP 7.3.4 or newer)
+//   &lt;9999=&gt;9999 (Latest only)
+// &lt;i&gt;QP API backwards compatibility with the QP API version.
+// &lt;i&gt;Lower QP_API_VERSION values enable backwards compatibility
+// &lt;i&gt;with lower (older) QP API versions.
+// &lt;i&gt;For example, QP_API_VERSION==691 will enable the compatibility
+// &lt;i&gt;layer with QP version 6.9.1 and newer, but not older than 6.9.1.
+// &lt;i&gt;QP_API_VERSION==0 enables the maximum currently supported
+// &lt;i&gt;backwards compatibility. Conversely, QP_API_VERSION==9999 means
+// &lt;i&gt;that no backwards compatibility layer should be enabled.
+// &lt;i&gt;Default: 0 (All supported)</documentation>
+   <code>0</code>
+  </attribute>
+  <attribute name="Q_SIGNAL_SIZE" type="" visibility="0x03" properties="0x00">
+   <documentation>//..........................................................................
+// &lt;h&gt;QP Functional Safety (FuSa) Subsystem (Q_UNSAFE)
+// &lt;i&gt;The QP FuSa Subsystem consists of the following facilities:
+// &lt;i&gt;- Software assertions as a recommended technique
+// &lt;i&gt;  (called Failure Assertion Programming (FAP) in IEC 61508)
+// &lt;i&gt;- Software Self-Monitoring (SSM), which encompasses such techniques:
+// &lt;i&gt;  * Duplicate Inverse Storage for critical variables
+// &lt;i&gt;  * Memory Markers for critical objects (e.g., events)
+// &lt;i&gt;  * Hard-limits for all loops
+// &lt;i&gt;  * Memory Isolation by means of Memory Protection Unit (MPU)
+
+// &lt;c3&gt;Disable QP FuSa in development (NOT recommended)
+// &lt;i&gt;Disable assertions and other self monitoring features
+// &lt;i&gt;in development build configurations (NDEBUG undefined).
+// &lt;i&gt;NOTE: Disabling safety *violates* functional safety standards.
+//#ifndef NDEBUG
+//#define Q_UNSAFE
+//#endif
+// &lt;/c&gt;
+
+// &lt;c3&gt;Disable QP FuSa in production release (NOT recommended)
+// &lt;i&gt;Disable assertions and other safety features
+// &lt;i&gt;in the release build configurations (NDEBUG defined).
+// &lt;i&gt;NOTE: Disabling safety *violates* functional safety standards.
+//#ifdef NDEBUG
+//#define Q_UNSAFE
+//#endif
+// &lt;/c&gt;
+
+// &lt;/h&gt;
+
+//..........................................................................
+// &lt;h&gt;QEP Event Processor (Events)
+// &lt;i&gt;Events and state machines.
+
+// &lt;o&gt;Event signal size (Q_SIGNAL_SIZE)
+//   &lt;1U=&gt;1
+//   &lt;2U=&gt;2 (default)
+//   &lt;4U=&gt;4
+// &lt;i&gt;Size of the QEvt signal for QEP/QF [bytes]
+// &lt;i&gt;Default: 2</documentation>
+   <code>2U</code>
+  </attribute>
+  <attribute name="QF_MAX_ACTIVE" type="" visibility="0x03" properties="0x00">
+   <documentation>//..........................................................................
+// &lt;h&gt;QF Framework (Active Objects)
+// &lt;i&gt;Active Object framework
+
+// &lt;o&gt;Maximum # Active Objects (QF_MAX_ACTIVE) &lt;1-64&gt;
+// &lt;i&gt;Maximum # Active Objects in the system &lt;1..64&gt;
+// &lt;i&gt;Default: 32</documentation>
+   <code>16U</code>
+  </attribute>
+  <attribute name="QF_MAX_EPOOL" type="" visibility="0x03" properties="0x00">
+   <documentation>// &lt;o&gt;Maximum # event pools (QF_MAX_EPOOL)
+// &lt;0=&gt;0 no event pools
+// &lt;1=&gt;1 &lt;2=&gt;2 &lt;3=&gt;3 (default) &lt;4=&gt;4 &lt;5=&gt;5
+// &lt;6=&gt;6 &lt;7=&gt;7 &lt;8=&gt;8 &lt;9=&gt;9 &lt;10=&gt;10 &lt;11=&gt;11
+// &lt;12=&gt;12 &lt;13=&gt;13 &lt;14=&gt;14 &lt;15=&gt;15
+// &lt;i&gt;Maximum # Event Pools &lt;1..15&gt;
+// &lt;i&gt;Default: 3</documentation>
+   <code>4U</code>
+  </attribute>
+  <attribute name="QF_MAX_TICK_RATE" type="" visibility="0x03" properties="0x00">
+   <documentation>// &lt;o&gt;Maximum # clock tick rates (QF_MAX_TICK_RATE)
+// &lt;0=&gt;0 no time events
+// &lt;1=&gt;1 (default) &lt;2=&gt;2 &lt;3=&gt;3 &lt;4=&gt;4 &lt;5=&gt;5
+// &lt;6=&gt;6 &lt;7=&gt;7 &lt;8=&gt;8 &lt;9=&gt;9 &lt;10=&gt;10 &lt;11=&gt;11
+// &lt;12=&gt;12 &lt;13=&gt;13 &lt;14=&gt;14 &lt;15=&gt;15
+// &lt;i&gt;Maximum # clock tick rates for time events &lt;1..15&gt;
+// &lt;i&gt;Default: 1</documentation>
+   <code>1U</code>
+  </attribute>
+  <attribute name="QF_EVENT_SIZ_SIZE" type="" visibility="0x03" properties="0x00">
+   <documentation>// &lt;o&gt;Event size (QF_EVENT_SIZ_SIZE)
+//   &lt;1U=&gt;1
+//   &lt;2U=&gt;2 (default)
+//   &lt;4U=&gt;4
+// &lt;i&gt;Size of the dynamic events for QF [bytes]
+// &lt;i&gt;Default: 2 (64K bytes maximum event size)</documentation>
+   <code>2U</code>
+  </attribute>
+  <attribute name="QF_TIMEEVT_CTR_SIZE" type="" visibility="0x03" properties="0x00">
+   <documentation>// &lt;o&gt;Time event counter size (QF_TIMEEVT_CTR_SIZE)
+//   &lt;1U=&gt;1
+//   &lt;2U=&gt;2
+//   &lt;4U=&gt;4 (default)
+// &lt;i&gt;Size of the QTimeEvt counter [bytes]
+// &lt;i&gt;Default: 4 (2^32 dynamic range)</documentation>
+   <code>4U</code>
+  </attribute>
+  <attribute name="QF_EQUEUE_CTR_SIZE" type="" visibility="0x03" properties="0x00">
+   <documentation>// &lt;o&gt;Event queue counter size (QF_EQUEUE_CTR_SIZE)
+//   &lt;1U=&gt;1 (default)
+//   &lt;2U=&gt;2
+// &lt;i&gt;Size of event queue counter [bytes]
+// &lt;i&gt;Default: 1 (255 events maximum in a queue)</documentation>
+   <code>1U</code>
+  </attribute>
+  <attribute name="QF_MPOOL_CTR_SIZE" type="" visibility="0x03" properties="0x00">
+   <documentation>// &lt;o&gt;Memory pool counter size (QF_MPOOL_CTR_SIZE)
+//   &lt;1U=&gt;1
+//   &lt;2U=&gt;2 (default)
+//   &lt;4U=&gt;4
+// &lt;i&gt;Size of memory pool counter [bytes]
+// &lt;i&gt;Default: 2 (64K blocks maximum in a pool)</documentation>
+   <code>2U</code>
+  </attribute>
+  <attribute name="QF_MPOOL_SIZ_SIZE" type="" visibility="0x03" properties="0x00">
+   <documentation>// &lt;o&gt;Memory block size (QF_MPOOL_SIZ_SIZE)
+//   &lt;1U=&gt;1
+//   &lt;2U=&gt;2 (default)
+//   &lt;4U=&gt;4
+// &lt;i&gt;Size of memory pool block [bytes]
+// &lt;i&gt;Default: 2 (64K bytes maximum block size)</documentation>
+   <code>2U</code>
+  </attribute>
+  <attribute name="QS_TIME_SIZE" type="" visibility="0x03" properties="0x00">
+   <documentation>//..........................................................................
+// &lt;h&gt;QS Software Tracing (Q_SPY)
+// &lt;i&gt;Target-resident component of QP/Spy software tracing system
+// &lt;i&gt;(tracing instrumentation and command-input).
+// &lt;i&gt;NOTE: The QS software tracing instrumentation is activated only when
+// &lt;i&gt;the macro Q_SPY is defined on the command-line to the compiler.
+// &lt;i&gt;Typically, Q_SPY is defined only in the &quot;spy&quot; build configuration.
+
+// &lt;o&gt;QS timestamp size (QS_TIME_SIZE)
+//   &lt;1U=&gt;1
+//   &lt;2U=&gt;2
+//   &lt;4U=&gt;4 (default)
+// &lt;i&gt;Size of the timestamp in QS [bytes]
+// &lt;i&gt;Default: 4 (2^32 dynamic range)</documentation>
+   <code>4U</code>
+  </attribute>
+  <attribute name="QS_CTR_SIZE" type="" visibility="0x03" properties="0x00">
+   <documentation>// &lt;o&gt;QS buffer counter size (QS_CTR_SIZE)
+//   &lt;1U=&gt;1
+//   &lt;2U=&gt;2 (default)
+//   &lt;4U=&gt;4
+// &lt;i&gt;Size of the counter in the internal QS buffer [bytes]
+// &lt;i&gt;Default: 2 (64K bytes in QS buffer)</documentation>
+   <code>2U</code>
+  </attribute>
+ </package>
+ <package name="qs_config" stereotype="0x00">
+  <attribute name="qs_filters_enum" type="enum" visibility="0x04" properties="0x00">
+   <documentation>//! @brief User Groups Enum.</documentation>
+   <code>{
+    EXAMPLE_STATUS = QS_USER,
+};</code>
+  </attribute>
+  <operation name="application_qs_filter_config" type="void" visibility="0x00" properties="0x00">
+   <documentation>//! @brief filter settings to trace.
+//! just select whitch groups you would like to watch!!!</documentation>
+   <code>// Config Filters here
+
+//QS_GLB_FILTER(QS_ALL_RECORDS);
+//QS_GLB_FILTER(-QS_QF_RECORDS);
+
+QS_GLB_FILTER(QS_SM_RECORDS);
+
+</code>
+  </operation>
+  <operation name="application_dictionary_init" type="void" visibility="0x00" properties="0x00">
+   <documentation>//! @brief function to configure QS Dictionaries
+//! This is a blocking function, please call it only from the initialization</documentation>
+   <code>void * ao_blinky = &amp;inst_ao_blinky;
+
+QS_OBJ_DICTIONARY(ao_blinky);</code>
+  </operation>
+ </package>
+ <directory name=".">
+  <directory name="generated_files">
+   <directory name="qm_files">
+    <directory name="active_objects">
+     <directory name="blinky">
+      <file name="blinky.h">
+       <text>#ifndef BLINKY_H_
+#define BLINKY_H_
+
+#include &quot;main_qm.h&quot;
+
+// Orthogonal Components
+
+// AO definition
+
+$declare${active_objects::blinky}
+
+#endif</text>
+      </file>
+      <file name="blinky.c">
+       <text>
+#include &quot;./blinky.h&quot;
+
+S_DEFINE_THIS_MODULE(&quot;Blinky_AO&quot;);
+
+$declare${active_objects::errors::blinky_errors}
+
+$define${active_objects::blinky}</text>
+      </file>
+     </directory>
+    </directory>
+    <directory name="orthogonal_components"/>
+    <file name="main_qm.c">
+     <text>
+#include &quot;main_qm.h&quot;
+
+$define${project_config}</text>
+    </file>
+    <file name="main_qm.h">
+     <text>#ifndef MAIN_QM_H_
+#define MAIN_QM_H_
+
+#include &quot;qpc.h&quot;
+#include &quot;bsp_f28379d_xl_launchpad_cpu1.h&quot;
+
+#ifdef Q_SPY
+
+#include &quot;qs_config.h&quot;
+
+#endif
+
+//================================================
+//================Project-config==================
+//================================================
+
+
+$declare${project_config}
+
+
+//================================================
+//=================Active-Objects=================
+//================================================
+
+// Blinky
+
+$declare${active_objects::blinky::globals}
+
+#endif</text>
+    </file>
+    <file name="qs_config.h">
+     <text>#ifndef QS_CONFIG_H_
+#define QS_CONFIG_H_
+
+#ifdef Q_SPY
+
+#include &quot;main_qm.h&quot;
+
+$declare${qs_config}
+
+#endif
+
+#endif /* APPLICATION_INCLUDE_QS_CONFIG_H_ */
+</text>
+    </file>
+    <file name="qp_config.h">
+     <text>#ifndef QP_CONFIG_H_
+#define QP_CONFIG_H_
+
+$declare${qp_config}
+
+#endif</text>
+    </file>
+   </directory>
+  </directory>
+ </directory>
+</model>
