@@ -39,16 +39,4 @@ void bsp_turn_off_led_2(void);
 
 //=================================
 
-/**
- * @brief Turns ON the LED 3
- */
-
-void bsp_turn_on_led_3(void);
-
-/**
- * @brief Turns OFF the LED 3
- */
-
-void bsp_turn_off_led_3(void);
-
 #endif /* BSP_BSP_VPU_V100_CPU1_INCLUDE_BSP_LED_CPU1_H_ */
