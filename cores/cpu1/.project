@@ -24,23 +24,6 @@
 		<nature>org.eclipse.cdt.core.ccnature</nature>
 		<nature>org.eclipse.cdt.managedbuilder.core.ScannerConfigNature</nature>
 	</natures>
-	<linkedResources>
-		<link>
-			<name>bsp/CLAmath/compiled</name>
-			<type>2</type>
-			<locationURI>C2000WARE_ROOT/libraries/math/CLAmath/c28/lib</locationURI>
-		</link>
-		<link>
-			<name>bsp/CLAmath/include</name>
-			<type>2</type>
-			<locationURI>C2000WARE_ROOT/libraries/math/CLAmath/c28/include</locationURI>
-		</link>
-		<link>
-			<name>bsp/CLAmath/source</name>
-			<type>2</type>
-			<locationURI>C2000WARE_ROOT/libraries/math/CLAmath/c28/source</locationURI>
-		</link>
-	</linkedResources>
 	<variableList>
 		<variable>
 			<name>C2000WARE_DLIB_ROOT</name>

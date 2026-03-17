@@ -1,8 +1,6 @@
 eclipse.preferences.version=1
 encoding//debug/application/source/subdir_rules.mk=UTF-8
 encoding//debug/application/source/subdir_vars.mk=UTF-8
-encoding//debug/bsp/CLAmath/compiled/subdir_rules.mk=UTF-8
-encoding//debug/bsp/CLAmath/compiled/subdir_vars.mk=UTF-8
 encoding//debug/bsp/bsp_f28379d_cpu1/source/subdir_rules.mk=UTF-8
 encoding//debug/bsp/bsp_f28379d_cpu1/source/subdir_vars.mk=UTF-8
 encoding//debug/bsp/bsp_f28379d_xl_launchpad_cpu1/source/subdir_rules.mk=UTF-8

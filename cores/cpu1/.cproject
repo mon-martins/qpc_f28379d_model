@@ -121,7 +121,7 @@
 						</toolChain>
 					</folderInfo>
 					<sourceEntries>
-						<entry excluding="bsp/CLAmath/compiled/cla2_math_library.lib|bsp/CLAmath/compiled/cla2_math_library_fpu32.lib|bsp/CLAmath/compiled/cla2_math_library_fpu32_eabi.lib|bsp/CLAmath/compiled/cla2_math_library_eabi.lib|bsp/CLAmath/compiled/cla2_math_library_datarom.lib|bsp/CLAmath/compiled/cla2_math_library_datarom_fpu32.lib|bsp/CLAmath/compiled/cla2_math_library_datarom_fpu32_eabi.lib|bsp/CLAmath/compiled/cla2_math_library_datarom_eabi.lib|bsp/CLAmath/compiled/cla1_math.lib|bsp/CLAmath/compiled/cla1_math_library.lib|bsp/CLAmath/compiled/cla1_math_library_fpu32.lib|bsp/CLAmath/compiled/cla1_math_library_fpu32_eabi.lib|bsp/CLAmath/compiled/cla1_math_library_eabi.lib|bsp/CLAmath/compiled/cla1_math_library_datarom.lib|bsp/CLAmath/compiled/cla1_math_library_datarom_fpu32.lib|bsp/CLAmath/compiled/cla1_math_library_datarom_fpu32_eabi.lib|bsp/CLAmath/compiled/cla1_math_library_datarom_eabi.lib|bsp/CLAmath/compiled/cla0_math.lib|bsp/CLAmath/compiled/cla0_math_library.lib|bsp/CLAmath/compiled/cla0_math_library_fpu32.lib|bsp/CLAmath/compiled/cla0_math_library_fpu32_eabi.lib|bsp/CLAmath/compiled/cla0_math_library_eabi.lib|bsp/CLAmath/compiled/cla0_math_library_datarom.lib|bsp/CLAmath/compiled/cla0_math_library_datarom_fpu32.lib|bsp/CLAmath/compiled/cla0_math_library_datarom_fpu32_eabi.lib|bsp/CLAmath/compiled/cla0_math_library_datarom_eabi.lib|bsp/CLAmath/source" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
+						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
 					</sourceEntries>
 				</configuration>
 			</storageModule>
