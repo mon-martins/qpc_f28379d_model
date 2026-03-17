@@ -1,0 +1,65 @@
+
+#include <cla1_config.h>
+
+#include "CLAmath.h"
+#include "board.h"
+
+/*
+ * main_cla1.cla
+ *
+ *  Created on: 11 de mar de 2024
+ *      Author: ramon.martins
+ */
+
+__interrupt void Cla1Task1 ( void )
+{
+
+    __mdebugstop();
+
+}
+
+__interrupt void Cla1Task2 ( void )
+{
+
+    __mdebugstop();
+
+}
+
+__interrupt void Cla1Task3 ( void )
+{
+
+    __mdebugstop();
+
+}
+
+__interrupt void Cla1Task4 ( void )
+{
+
+    __mdebugstop();
+
+}
+
+__interrupt void Cla1Task5 ( void )
+{
+
+    __mdebugstop();
+
+}
+
+__interrupt void Cla1Task6 ( void )
+{
+    __mdebugstop();
+}
+
+__interrupt void Cla1Task7 ( void )
+{
+    __mdebugstop();
+}
+
+__interrupt void Cla1Task8 ( void )
+{
+
+    __mdebugstop();
+
+}
+

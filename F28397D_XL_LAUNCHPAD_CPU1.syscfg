@@ -1,0 +1,117 @@
+/**
+ * These arguments were used when this file was generated. They will be automatically applied on subsequent loads
+ * via the GUI or CLI. Run CLI with '--help' for additional information on how to override these arguments.
+ * @cliArgs --board "/boards/LAUNCHXL_F28379D" --device "F2837xD" --part "F2837xD_337ZWT" --package "F2837xD_337ZWT" --context "CPU1" --product "C2000WARE@26.00.00.00"
+ * @v2CliArgs --board "/boards/LAUNCHXL_F28379D" --device "TMS320F28379D" --package "337ZWT" --context "CPU1" --product "C2000WARE@26.00.00.00"
+ * @versions {"tool":"1.24.0+4150"}
+ */
+
+/**
+ * Import the modules used in this configuration.
+ */
+const cla            = scripting.addModule("/driverlib/cla.js", {}, false);
+const cla1           = cla.addInstance();
+const device_support = scripting.addModule("/driverlib/device_support.js");
+const gpio           = scripting.addModule("/driverlib/gpio.js", {}, false);
+const gpio1          = gpio.addInstance();
+const gpio2          = gpio.addInstance();
+const memcfg         = scripting.addModule("/driverlib/memcfg.js");
+const sysctl         = scripting.addModule("/driverlib/sysctl.js");
+const CMD            = scripting.addModule("/utilities/cmd_tool/cmd_syscfg/source/CMD");
+const CMD1           = CMD.addInstance();
+
+/**
+ * Write custom configuration values to the imported modules.
+ */
+cla1.$name = "myCLA0";
+
+device_support.build = "Release";
+
+gpio1.direction         = "GPIO_DIR_MODE_OUT";
+gpio1.writeInitialValue = true;
+gpio1.$name             = "GPIO_LED1";
+gpio1.$hardware         = system.deviceData.board.components.LED4;
+gpio1.initialValue      = 1;
+
+gpio2.direction         = "GPIO_DIR_MODE_OUT";
+gpio2.$name             = "GPIO_LED2";
+gpio2.$hardware         = system.deviceData.board.components.LED5;
+gpio2.writeInitialValue = true;
+
+memcfg.init_MEMCFG_SECT_MSGCPUTOCPU  = true;
+memcfg.init_MEMCFG_SECT_MSGCPUTOCLA1 = true;
+memcfg.init_MEMCFG_SECT_MSGCLA1TOCPU = true;
+memcfg.config_MEMCFG_SECT_LS5        = "CLA_prog";
+memcfg.config_MEMCFG_SECT_LS4        = "CLA_prog";
+memcfg.config_MEMCFG_SECT_LS3        = "CLA_data";
+memcfg.config_MEMCFG_SECT_GS15       = "MEMCFG_GSRAMCONTROLLER_CPU2";
+memcfg.config_MEMCFG_SECT_GS14       = "MEMCFG_GSRAMCONTROLLER_CPU2";
+memcfg.config_MEMCFG_SECT_GS13       = "MEMCFG_GSRAMCONTROLLER_CPU2";
+memcfg.config_MEMCFG_SECT_GS12       = "MEMCFG_GSRAMCONTROLLER_CPU2";
+memcfg.config_MEMCFG_SECT_GS11       = "MEMCFG_GSRAMCONTROLLER_CPU2";
+memcfg.config_MEMCFG_SECT_GS10       = "MEMCFG_GSRAMCONTROLLER_CPU2";
+
+CMD.activateCMD = true;
+CMD.activeCMD   = "CMD_Config";
+
+CMD1.sectionMemory_codestart               = "0x080000";
+CMD1.sectionMemory_text                    = ["FLASHA","FLASHB","FLASHC","FLASHD"];
+CMD1.sectionBinit_text                     = false;
+CMD1.sectionAlignEnable_text               = true;
+CMD1.sectionMemory_ramfunc                 = ["FLASHD"];
+CMD1.sectionAlignEnable_ramfunc            = true;
+CMD1.sectionRunFromDifferentAddr_ramfunc   = true;
+CMD1.sectionRun_ramfunc                    = ["RAMGS_0_4"];
+CMD1.sectionBinit_ramfunc                  = false;
+CMD1.sectionMemory_binit                   = ["FLASHE"];
+CMD1.sectionAlignEnable_binit              = true;
+CMD1.sectionAlignEnable_ovly               = true;
+CMD1.sectionMemory_cinit                   = ["FLASHF"];
+CMD1.sectionAlignEnable_cinit              = true;
+CMD1.sectionMemory_ovly                    = ["FLASHE"];
+CMD1.sectionAlignEnable_stack              = true;
+CMD1.sectionMemory_stack                   = ["RAMM1"];
+CMD1.sectionMemory_init_array              = ["FLASHE"];
+CMD1.sectionAlignEnable_init_array         = true;
+CMD1.sectionMemory_bss                     = ["RAMGS_0_4"];
+CMD1.sectionMemory_const                   = ["FLASHE"];
+CMD1.sectionAlignEnable_const              = true;
+CMD1.sectionMemory_data                    = ["RAMGS_0_4"];
+CMD1.sectionMemory_switch                  = ["FLASHE"];
+CMD1.sectionAlignEnable_switch             = true;
+CMD1.sectionMemory_sysmem                  = ["RAMGS_0_4"];
+CMD1.sectionRunFromDifferentAddr_cla1Prog  = true;
+CMD1.sectionRun_cla1Prog                   = ["RAMLS_4_5"];
+CMD1.sectionAlignEnable_cla1Prog           = true;
+CMD1.sectionBinit_cla1Prog                 = false;
+CMD1.sectionMemory_claConst                = ["FLASHN"];
+CMD1.sectionRunFromDifferentAddr_claConst  = true;
+CMD1.sectionAlignEnable_claConst           = true;
+CMD1.sectionRun_claConst                   = ["RAMLS3"];
+CMD1.sectionMemory_claScratchpad           = ["RAMLS3"];
+CMD1.sectionMemory_bssCla                  = ["RAMLS3"];
+CMD1.sectionMemory_cla1ToCpuMsgRAM         = ["CLATOCPU_MSGRAM"];
+CMD1.sectionMemory_cpuToCla1MsgRAM         = ["CPUTOCLA_MSGRAM"];
+CMD1.$name                                 = "CMD_Config";
+CMD1.sectionMemory_cla1Prog                = ["FLASHJ"];
+CMD1.RAMLSmemoryCombination.create(1);
+CMD1.RAMLSmemoryCombination[0].combination = ["RAMLS4","RAMLS5"];
+CMD1.RAMLSmemoryCombination[0].$name       = "RAMLS_4_5";
+CMD1.RAMGSmemoryCombination.create(1);
+CMD1.RAMGSmemoryCombination[0].combination = ["RAMGS0","RAMGS1","RAMGS2","RAMGS3","RAMGS4"];
+CMD1.RAMGSmemoryCombination[0].$name       = "RAMGS_0_4";
+CMD1.userSection.create(1);
+CMD1.userSection[0].$name                  = "RTOS_static_stack";
+CMD1.userSection[0].sectionName            = ".freertosStaticStack";
+CMD1.userSection[0].sectionMemory          = ["RAMGS_0_4"];
+CMD1.userSection[0].sectionAlignEnable     = true;
+CMD1.userSection[0].sectionFillEnable      = true;
+CMD1.userSection[0].sectionFill            = 171;
+
+/**
+ * Pinmux solution for unlocked pins/peripherals. This ensures that minor changes to the automatic solver in a future
+ * version of the tool will not impact the pinmux you originally saw.  These lines can be completely deleted in order to
+ * re-solve from scratch.
+ */
+gpio1.gpioPin.$suggestSolution = "GPIO31";
+gpio2.gpioPin.$suggestSolution = "GPIO34";
