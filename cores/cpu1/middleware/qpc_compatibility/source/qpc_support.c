@@ -1,4 +1,4 @@
-#include <bsp/bsp_f28379d_xl_launchpad_cpu1/include/bsp_f28379d_xl_launchpad_cpu1.h>
+#include <bsp_f28379d_xl_launchpad_cpu1.h>
 #include "qpc.h"
 
 

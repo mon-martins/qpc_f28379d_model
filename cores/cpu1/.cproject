@@ -70,6 +70,8 @@
 									<listOptionValue builtIn="false" value="CPU1"/>
 									<listOptionValue builtIn="false" value="DEBUG"/>
 									<listOptionValue builtIn="false" value="_FLASH"/>
+									<listOptionValue builtIn="false" value="Q_SPY"/>
+									<listOptionValue builtIn="false" value="Q_SPY_SCI"/>
 								</option>
 								<option id="com.ti.ccstudio.buildDefinitions.C2000_22.6.compilerID.OPT_LEVEL.265615121" name="Optimization level (--opt_level, -O)" superClass="com.ti.ccstudio.buildDefinitions.C2000_22.6.compilerID.OPT_LEVEL" useByScannerDiscovery="false" value="com.ti.ccstudio.buildDefinitions.C2000_22.6.compilerID.OPT_LEVEL.off" valueType="enumerated"/>
 								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="com.ti.ccstudio.buildDefinitions.C2000_22.6.compilerID.DIAG_SUPPRESS.1408367424" name="Suppress diagnostic &lt;id&gt; (--diag_suppress, -pds)" superClass="com.ti.ccstudio.buildDefinitions.C2000_22.6.compilerID.DIAG_SUPPRESS" useByScannerDiscovery="false" valueType="stringList">
@@ -81,6 +83,7 @@
 									<listOptionValue builtIn="false" value="qp_config.h"/>
 								</option>
 								<option id="com.ti.ccstudio.buildDefinitions.C2000_22.6.compilerID.C_DIALECT.1839298751" name="C Dialect" superClass="com.ti.ccstudio.buildDefinitions.C2000_22.6.compilerID.C_DIALECT" value="com.ti.ccstudio.buildDefinitions.C2000_22.6.compilerID.C_DIALECT.C99" valueType="enumerated"/>
+								<option id="com.ti.ccstudio.buildDefinitions.C2000_22.6.compilerID.ADVICE__PERFORMANCE.426762898" name="Provide advice on optimization techniques (--advice:performance)" superClass="com.ti.ccstudio.buildDefinitions.C2000_22.6.compilerID.ADVICE__PERFORMANCE" value="--advice:performance=all" valueType="string"/>
 								<inputType id="com.ti.ccstudio.buildDefinitions.C2000_22.6.compiler.inputType__C_SRCS.155224603" name="C Sources" superClass="com.ti.ccstudio.buildDefinitions.C2000_22.6.compiler.inputType__C_SRCS"/>
 								<inputType id="com.ti.ccstudio.buildDefinitions.C2000_22.6.compiler.inputType__CPP_SRCS.371044702" name="C++ Sources" superClass="com.ti.ccstudio.buildDefinitions.C2000_22.6.compiler.inputType__CPP_SRCS"/>
 								<inputType id="com.ti.ccstudio.buildDefinitions.C2000_22.6.compiler.inputType__ASM_SRCS.1250568674" name="Assembly Sources" superClass="com.ti.ccstudio.buildDefinitions.C2000_22.6.compiler.inputType__ASM_SRCS"/>
@@ -127,7 +130,7 @@
 						</toolChain>
 					</folderInfo>
 					<sourceEntries>
-						<entry excluding="middleware/qpc/src/qs|middleware/qpc/src/qf/qf_actq.c|middleware/qpc/zephyr|middleware/qpc/test|middleware/qpc/src/qxk|middleware/qpc/ports/win32-qutest|middleware/qpc/ports/posix-qutest|middleware/qpc/ports/lint-plus2|middleware/qpc/ports/lint-plus|middleware/qpc/src/qv|middleware/qpc/src/qk|middleware/qpc/ports/zephyr|middleware/qpc/ports/win32-qv|middleware/qpc/ports/win32|middleware/qpc/ports/uc-os2|middleware/qpc/ports/threadx|middleware/qpc/ports/risc-v|middleware/qpc/ports/qube|middleware/qpc/ports/qep-only|middleware/qpc/ports/posix-qv|middleware/qpc/ports/posix|middleware/qpc/ports/msp430|middleware/qpc/ports/embos|middleware/qpc/ports/config|middleware/qpc/ports/arm-cr|middleware/qpc/ports/arm-cm" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
+						<entry excluding="middleware/qpc/src/qf/qf_actq.c|middleware/qpc/zephyr|middleware/qpc/test|middleware/qpc/src/qxk|middleware/qpc/ports/win32-qutest|middleware/qpc/ports/posix-qutest|middleware/qpc/ports/lint-plus2|middleware/qpc/ports/lint-plus|middleware/qpc/src/qv|middleware/qpc/src/qk|middleware/qpc/ports/zephyr|middleware/qpc/ports/win32-qv|middleware/qpc/ports/win32|middleware/qpc/ports/uc-os2|middleware/qpc/ports/threadx|middleware/qpc/ports/risc-v|middleware/qpc/ports/qube|middleware/qpc/ports/qep-only|middleware/qpc/ports/posix-qv|middleware/qpc/ports/posix|middleware/qpc/ports/msp430|middleware/qpc/ports/embos|middleware/qpc/ports/config|middleware/qpc/ports/arm-cr|middleware/qpc/ports/arm-cm" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
 					</sourceEntries>
 				</configuration>
 			</storageModule>

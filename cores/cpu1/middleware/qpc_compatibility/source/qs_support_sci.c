@@ -5,10 +5,11 @@
  *      Author: ramon.martins
  */
 
+#ifdef Q_SPY_SCI
 #ifdef Q_SPY
 
 #include "qpc.h"
-#include <bsp/bsp_f28379d_xl_launchpad_cpu1/include/bsp_f28379d_xl_launchpad_cpu1.h>
+#include <bsp_f28379d_xl_launchpad_cpu1.h>
 
 S_DEFINE_THIS_MODULE("qs_support_sci");
 
@@ -161,4 +162,10 @@ void QS_onCommand(uint8_t cmdId,
     QS_END()
 }
 
-#endif
+void QF_onCleanup(void){
+    // Intentionally left empty
+    BSP_BKPT;
+}
+
+#endif /*Q_SPY*/
+#endif /*Q_SPY_SCI*/

@@ -5,6 +5,7 @@
  *      Author: ramon.martins
  */
 
+#ifdef Q_SPY_CAN
 #ifdef Q_SPY
 
 #include "qpc.h"
@@ -169,4 +170,9 @@ void QS_onCommand(uint8_t cmdId,
 //
 //}
 
+void QF_onCleanup(void){
+    // Intentionally left empty
+}
+
+#endif
 #endif

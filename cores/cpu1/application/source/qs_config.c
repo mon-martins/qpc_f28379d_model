@@ -25,6 +25,9 @@ void application_qs_filter_config(void) {
 
 void application_dictionary_init(void) {
 
+    void * ao_blinky = &inst_ao_blinky;
+    QS_OBJ_DICTIONARY(ao_blinky);
+
     auto_dict_init_all();
 
 }

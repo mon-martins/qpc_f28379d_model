@@ -364,7 +364,7 @@ if __name__ == "__main__":
     # raw_input = sys.argv[1].strip("[] ")
     # paths = [item.strip().strip("'\"") for item in raw_input.split(',')]
 
-    paths_to_search = ['./../../qm_files/']
+    paths_to_search = ['./../../generated_files/qm_files/']
 
     # Discover header files
     header_files = []

@@ -16,6 +16,8 @@ const gpio           = scripting.addModule("/driverlib/gpio.js", {}, false);
 const gpio1          = gpio.addInstance();
 const gpio2          = gpio.addInstance();
 const memcfg         = scripting.addModule("/driverlib/memcfg.js");
+const sci            = scripting.addModule("/driverlib/sci.js", {}, false);
+const sci1           = sci.addInstance();
 const sysctl         = scripting.addModule("/driverlib/sysctl.js");
 const FREERTOS       = scripting.addModule("/kernel/freertos_tool/FREERTOS", {}, false);
 const FREERTOS1      = FREERTOS.addInstance();
@@ -52,6 +54,19 @@ memcfg.config_MEMCFG_SECT_GS13       = "MEMCFG_GSRAMCONTROLLER_CPU2";
 memcfg.config_MEMCFG_SECT_GS12       = "MEMCFG_GSRAMCONTROLLER_CPU2";
 memcfg.config_MEMCFG_SECT_GS11       = "MEMCFG_GSRAMCONTROLLER_CPU2";
 memcfg.config_MEMCFG_SECT_GS10       = "MEMCFG_GSRAMCONTROLLER_CPU2";
+
+sci1.selectRegisteredInterrupts = ["registerRxInt","registerTxInt"];
+sci1.enabledFIFOInterrupts      = ["SCI_INT_RXFF"];
+sci1.rxFifo                     = "SCI_FIFO_RX1";
+sci1.$name                      = "SCI_1";
+sci1.sci.$assign                = "SCIA";
+sci1.sci.scirxdPin.$assign      = "GPIO43";
+sci1.sci.scitxdPin.$assign      = "GPIO42";
+sci1.rxQual.$name               = "myGPIOQUAL0";
+sci1.txQual.$name               = "myGPIOQUAL1";
+sci1.sciRXInt.enableInterrupt   = true;
+scripting.suppress("Not pinned out,@@@.+?@@@ is not pinned out on the LaunchPad F28379D\\.  @@@.+?@@@", sci1.sci, "scirxdPin");
+scripting.suppress("Not pinned out,@@@.+?@@@ is not pinned out on the LaunchPad F28379D\\.  @@@.+?@@@", sci1.sci, "scitxdPin");
 
 FREERTOS1.$name                      = "myFREERTOS0";
 FREERTOS1.MINIMAL_STACK_SIZE         = 256;

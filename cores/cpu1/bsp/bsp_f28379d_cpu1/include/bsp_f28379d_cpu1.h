@@ -28,9 +28,9 @@
 #include <bsp_f28379d_cpu1_gpio.h>
 #include <bsp_f28379d_cpu1_cla.h>
 #include <bsp_f28379d_cpu1_board_init.h>
-//#include <bsp_f28379d_cpu1_interrupts_stack.h>
-//#include <bsp_f28379d_cpu1_sci.h>
-//#include <bsp_f28379d_cpu1_timer.h>
+#include <bsp_f28379d_cpu1_interrupts_stack.h>
+#include <bsp_f28379d_cpu1_sci.h>
+#include <bsp_f28379d_cpu1_timer.h>
 
 /**
  * @brief Insert a break point by firmware
