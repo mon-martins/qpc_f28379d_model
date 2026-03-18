@@ -5,8 +5,8 @@
 #include "auto_dict.h"
 #include "../../generated_files/qm_files/main_qm.h"
 #include "../../generated_files/qm_files/active_objects/blinky/blinky.h"
-#include "../../generated_files/qm_files/qs_config.h"
 #include "../../generated_files/qm_files/qp_config.h"
+#include "../../generated_files/qm_files/qs_config.h"
 
 void auto_dict_init_signals(void){
     QS_SIG_DICTIONARY(FIRST_PUBLISH_SIG, (void *)0);
