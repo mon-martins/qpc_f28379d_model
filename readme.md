@@ -234,8 +234,4 @@ This project does not have a license yet. Note that the QPC framework is license
 🔗 Project link: [https://github.com/mon-martins/qpc_f28379d_model](https://github.com/mon-martins/qpc_f28379d_model)
  
 ---
-
-<div align="center">
-Made with ❤️ using QPC + FreeRTOS on the F28379D
-</div>
  
