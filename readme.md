@@ -86,7 +86,7 @@ Access the project on GitHub and use it as a template to create your own reposit
  
 🔗 Project link: [https://github.com/mon-martins/qpc_f28379d_model](https://github.com/mon-martins/qpc_f28379d_model)
  
-![QSPY](docs/qspy.png)
+![Template_on_git](docs/imgs/use_template.png)
  
 ### 2. Clone the repository
  
@@ -105,7 +105,7 @@ git submodule update --init
  
 Open the model file by double-clicking `model.qm`, then click **Generate Code** inside QM.
  
-![generate-code-button](image.png)
+![generate-code-button](docs/imgs/generate_code.png)
  
 Alternatively, from the command line:
  
@@ -155,8 +155,8 @@ path/to/qspy/bin/qspy -c COM?? -b 115200
  
 6. Resume execution in CCS.
  
-*(Image placeholder)*
- 
+![QSPY](docs/imgs/qspy.png)
+
 ---
  
 ## 📁 Folder Structure
