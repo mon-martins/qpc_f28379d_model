@@ -60,7 +60,7 @@ The intended workflow is:
 | [QM](https://www.state-machine.com) | 6.2.3 | State Machine Modeling |
 | [QSPY](https://www.state-machine.com) | 7.4.0 | Software Trace |
 | [SysConfig](https://www.ti.com/tool/SYSCONFIG) | 1.24.0 | Register configuration interface |
-| [C2000Ware](https://www.ti.com/tool/C2000WARE/) | 5.00.00.00 | SDK used by SysConfig and for register manipulation |
+| [C2000Ware](https://www.ti.com/tool/C2000WARE/) | 26.0.0.00 | SDK used by SysConfig and for register manipulation |
 | [Python](https://www.python.org/) | Latest | Used to generate the auto dictionary |
 | [CCS](https://www.ti.com/tool/CCSTUDIO) | 12.8.1 | Code compiler and editor |
  
@@ -71,7 +71,7 @@ The intended workflow is:
 Before getting started, make sure you have the following installed:
  
 - [SysConfig](https://www.ti.com/tool/SYSCONFIG) >= 1.24.0
-- [C2000Ware](https://www.ti.com/tool/C2000WARE/) = 5.00.00.00
+- [C2000Ware](https://www.ti.com/tool/C2000WARE/) = 26.0.0.00
 - [Git](https://git-scm.com/)
 - [Python](https://www.python.org/)
 - [Qtools](https://github.com/QuantumLeaps/qtools/releases) = 7.4.0 — **do not use versions above this**, as QSPY is no longer open source in later releases
@@ -127,7 +127,7 @@ path/to/qm/qmc.exe model.qm
 2. Import the project: **Getting Started → Import Project**.
 3. Verify that your products are recognized:
    - Open project properties: right-click the project → **Properties** (or press `ALT+ENTER`).
-   - Navigate to **General → Products** and confirm that **C2000Ware [5.00.00.00]** and **SysConfig [1.24.0]** are listed.
+   - Navigate to **General → Products** and confirm that **C2000Ware [26.0.0.00]** and **SysConfig [1.24.0]** are listed.
    - If they are missing: click **Add → Preferences**, check that the resources are in the **Product Discovery Path**, then click **Refresh**. The products should now appear under **Discovered Products**.
    - Click **Apply and Close**.
  
